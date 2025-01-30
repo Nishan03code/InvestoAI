@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2d3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+
+        .recommendation, .trends {
+            font-weight: bold;
+            color: #2d3e50;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2d3e50;
+            color: white;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Stock Analysis Result</h1>
+</header>
+
+<main class="container">
+
+    <div class="section">
+        <h2>Stock Data Visualization</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Stock Data Plot">
+    </div>
+
+    <div class="section">
+        <h2>Sentiment Analysis</h2>
+        <ul>
+            {% for sentiment in sentiments %}
+                <li>{{ sentiment['label'] }} - {{ sentiment['score'] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Predicted Trends</h2>
+        <p class="trends">{{ trends }}</p>
+    </div>
+
+    <div class="section">
+        <h2>Investment Recommendation</h2>
+        <p class="recommendation">{{ recommendation }}</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Stock Analysis App | <a href="/">Back to Home</a></p>
+    </footer>
+
+</main>
+
+</body>
+</html>
